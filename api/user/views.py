@@ -73,7 +73,7 @@ def signout(request, id):
     return JsonResponse({'success': 'Logout Succesful'})
 
 
-class UserViewSet(viewsets, ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     permissin_classes_by_action = {'create': [AllowAny]}
 
     queryset = CustomUser.objects.all().order_by('id')
