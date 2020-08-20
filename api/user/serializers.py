@@ -15,7 +15,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         instance.save()
         return instance
 
-    def update(self, isinstance, validated_data):
+    def update(self, instance, validated_data):
         for attr, value in validated_data.item():
             if attr == 'password':
                 instance.set_password(value)
@@ -24,7 +24,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         instance.save()
         return instance
 
-    class Mete:
+    class Meta:
         model = CustomUser
         extra_kwargs = {'password': {'write_only': True}}
         fields = ('name', 'email', 'phone', 'password', 'gender',
