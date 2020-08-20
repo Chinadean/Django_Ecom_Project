@@ -7,7 +7,7 @@ from .models import CustomUser
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     def create(self, validated_data):
-        password = validated_data.pop('password': None)
+        password = validated_data.pop('password', None)
         instance = self.Meta.model(**validated_data)
 
         if password is not None:
