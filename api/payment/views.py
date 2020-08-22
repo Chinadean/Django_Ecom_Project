@@ -3,7 +3,6 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
-
 import braintree
 
 # Create your views here.
@@ -39,7 +38,7 @@ def generate_token(request, id, token):
 
 
 @csrf_exempt
-def process_pyment(request, id, token):
+def process_payment(request, id, token):
     if not validate_user_session(id, token):
         return JsonResponse({'error': 'Invalid session ,Please login again'})
 
